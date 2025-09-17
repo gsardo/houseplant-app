@@ -4,9 +4,8 @@ export function Nav() {
   const navItems = [
     { href: "/", label: "Home" },
     { href: "/plant-care", label: "Plant Care" },
-    { href: "/profile", label: "My Profile" },
     { href: "/articles", label: "Articles" },
-    { href: "/contact", label: "Contact" },
+    { href: "/profile", label: "My Profile" },
   ];
 
   return (
