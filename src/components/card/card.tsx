@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export function Card({ name }: { name: string }) {
     return (
-        <Link href={`/${encodeURIComponent(name.toLowerCase().replace(/\s+/g, '-'))}`} className='plant-card'>
+        <Link href={`/details/${encodeURIComponent(name.toLowerCase().replace(/\s+/g, '-'))}`} className='plant-card'>
             <Image src="/plant-image.png" alt="Plant" width={1050} height={1050} />
 
             <div className="content">

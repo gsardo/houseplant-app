@@ -7,15 +7,15 @@ const plantCommonName = ['Cactus', 'Fern', 'Monstera', 'Crotus', 'Aloe Vera', 'P
 export default function Home() {
   return (
     <div>
-<p>House Plant</p>
     <div className="pattern"/>
     <div className="wrapper">
+    <h2>Welcome to HousePlant</h2>
     <Nav></Nav>
     <header>
       <Image src="/hero.png" alt="Logo"  width={1000} height={2000}/>
-      <h1>
+      <h2>
         <span className="text-gradient">Find plants</span>
-      </h1>
+      </h2>
     </header>
 
     <section className="all-plants">
