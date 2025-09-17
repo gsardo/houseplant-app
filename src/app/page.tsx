@@ -1,4 +1,3 @@
-import { Nav } from "@/components/nav";
 import { Card } from "@/components/card";
 import Image from "next/image";
 
@@ -6,28 +5,22 @@ const plantCommonName = ['Cactus', 'Fern', 'Monstera', 'Crotus', 'Aloe Vera', 'P
 
 export default function Home() {
   return (
-    <div>
-    <div className="pattern"/>
-    <div className="wrapper">
-    <h2>Welcome to HousePlant</h2>
-    <Nav></Nav>
-    <header>
-      <Image src="/hero.png" alt="Logo"  width={1000} height={2000}/>
-      <h2>
-        <span className="text-gradient">Find plants</span>
-      </h2>
-    </header>
+    <>
+      <header>
+        <Image src="/hero.png" alt="Logo"  width={1000} height={2000}/>
+        <h2>
+          <span className="text-gradient">Find plants</span>
+        </h2>
+      </header>
 
-    <section className="all-plants">
-      <div></div>
-      <ul>
-        {plantCommonName.map((plantCommonName, index) => (
-          <Card key={index} name={plantCommonName} />
-        ))}
-      </ul>
-    </section>
-    </div>
-    </div>
-    
+      <section className="all-plants">
+        <div></div>
+        <ul>
+          {plantCommonName.map((plantCommonName, index) => (
+            <Card key={index} name={plantCommonName} />
+          ))}
+        </ul>
+      </section>
+    </>
   );
 }

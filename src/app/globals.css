@@ -33,6 +33,14 @@
     @apply mx-auto max-w-4xl text-center text-3xl font-bold leading-tight tracking-[-1%] text-white sm:text-[48px] sm:leading-[56px] mb-4;
   }
 
+  h3 {
+    @apply mx-auto max-w-4xl text-center text-2xl font-bold leading-tight tracking-[-1%] text-white sm:text-[36px] sm:leading-[44px] mb-3;
+  }
+
+  h4 {
+    @apply mx-auto max-w-4xl text-center text-xl font-bold leading-tight tracking-[-1%] text-white sm:text-[28px] sm:leading-[36px] mb-2;
+  }
+
   main {
     @apply min-h-screen relative bg-primary;
   }
@@ -86,8 +94,8 @@
       @apply rounded-lg h-auto w-full;
     }
 
-    & h3 {
-      @apply text-white font-bold text-base line-clamp-1;
+    & .content h3 {
+      @apply text-white font-bold text-base line-clamp-1 text-left mx-0 max-w-none mb-0;
     }
 
     & h4 {

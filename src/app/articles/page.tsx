@@ -1,7 +1,7 @@
 export default function ArticlesPage() {
   return (
     <div>
-      <h1>Articles</h1>
+      <h3>Articles</h3>
     </div>
   );
 }
