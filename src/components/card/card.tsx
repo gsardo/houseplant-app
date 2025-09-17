@@ -1,8 +1,9 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export function Card({ name }: { name: string }) {
     return (
-        <div className='plant-card'>
+        <Link href={`/${encodeURIComponent(name.toLowerCase().replace(/\s+/g, '-'))}`} className='plant-card'>
             <Image src="/plant-image.png" alt="Plant" width={1050} height={1050} />
 
             <div className="content">
@@ -10,6 +11,6 @@ export function Card({ name }: { name: string }) {
                 <span>•</span>
                 <h5>Plant botanical name</h5>
             </div>
-        </div>
+        </Link>
     )
 }
