@@ -1,10 +1,9 @@
-'use client';
+interface PlantDetailsPageProps {
+  params: Promise<{ plant: string }>;
+}
 
-import { useParams } from 'next/navigation';
-
-export default function PlantDetailsPage() {
-  const params = useParams();
-  const plantSlug = params.plant as string;
+export default async function PlantDetailsPage({ params }: PlantDetailsPageProps) {
+  const { plant: plantSlug } = await params;
   
   // Convert slug back to readable plant name
   const plantName = decodeURIComponent(plantSlug)

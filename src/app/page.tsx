@@ -3,11 +3,9 @@
 import { Card } from "@/components/card";
 import { Search } from '@/components/search';
 import { QuickSearch } from '@/components/quicksearch';
+import { plantsData } from '@/data/plants';
 import { useState } from "react";
 import Image from "next/image";
-
-
-const plantCommonName = ['Cactus', 'Fern', 'Monstera', 'Crotus', 'Aloe Vera', 'Peace Lily', 'Snake Plant', 'Pothos'];
 
 export default function Home() {
 
@@ -15,25 +13,24 @@ export default function Home() {
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
 
   // Filter plants based on search term and category
-  const filteredPlants = plantCommonName.filter(plant => {
-    const matchesSearch = plant.toLowerCase().includes(searchTerm.toLowerCase());
+  const filteredPlants = plantsData.filter(plant => {
+    const matchesSearch = plant.commonName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                         plant.botanicalName.toLowerCase().includes(searchTerm.toLowerCase());
     
-    // For now, we'll do basic category matching based on plant names
-    // This will be improved when you implement the full plant data structure
     let matchesCategory = true;
     if (activeCategory) {
       switch (activeCategory) {
         case 'easy-care':
-          matchesCategory = ['Cactus', 'Snake Plant', 'Pothos', 'Aloe Vera'].includes(plant);
+          matchesCategory = plant.categories.easyCare;
           break;
         case 'pet-friendly':
-          matchesCategory = ['Fern', 'Peace Lily'].includes(plant);
+          matchesCategory = plant.categories.petFriendly;
           break;
         case 'succulents':
-          matchesCategory = ['Cactus', 'Aloe Vera'].includes(plant);
+          matchesCategory = plant.categories.succulent;
           break;
         case 'low-light':
-          matchesCategory = ['Snake Plant', 'Pothos', 'Peace Lily'].includes(plant);
+          matchesCategory = plant.categories.lowLight;
           break;
         default:
           matchesCategory = true;
@@ -50,7 +47,7 @@ export default function Home() {
        
         <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
 
-        <h3>Quick searches</h3>
+        <h4>Popular searches</h4>
         <QuickSearch 
           activeCategory={activeCategory} 
           onCategorySelect={setActiveCategory} 
@@ -60,8 +57,8 @@ export default function Home() {
 
       <section className="all-plants">
         <ul>
-          {filteredPlants.map((plant, index) => (
-            <Card key={index} name={plant} />
+          {filteredPlants.map((plant) => (
+            <Card key={plant.id} plant={plant} />
           ))}
         </ul>
         {filteredPlants.length === 0 && (searchTerm || activeCategory) && (
