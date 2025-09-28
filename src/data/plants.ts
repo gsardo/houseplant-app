@@ -139,3 +139,11 @@ export const getPlantsByCareLevel = (
 ): Plant[] => {
   return plantsData.filter((plant) => plant.careLevel === careLevel);
 };
+
+// Find plant by slug (created from commonName)
+export const getPlantBySlug = (slug: string): Plant | undefined => {
+  return plantsData.find((plant) => {
+    const plantSlug = plant.commonName.toLowerCase().replace(/\s+/g, "-");
+    return plantSlug === slug;
+  });
+};
