@@ -91,6 +91,24 @@
     }
   }
 
+  .quick-search {
+    @apply w-full max-w-4xl mx-auto mt-6 mb-8;
+
+    & .quick-search-buttons {
+      @apply flex flex-wrap gap-3 justify-center items-center;
+    }
+
+    & .quick-search-btn {
+      @apply px-4 py-2 bg-white/10 text-white text-sm font-medium rounded-full 
+             border border-white/20 transition-all duration-200 
+             hover:bg-white/20 hover:scale-105 active:scale-95;
+    }
+
+    & .quick-search-btn.active {
+      @apply bg-white text-gray-800 border-white shadow-md;
+    }
+  }
+
   .plant-card {
     @apply bg-dark-100 p-5 rounded-2xl shadow-inner shadow-light-100/10;
 
