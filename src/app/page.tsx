@@ -12,6 +12,11 @@ export default function Home() {
 
   const [searchTerm, setSearchTerm] = useState("");
 
+  // Filter plants based on search term
+  const filteredPlants = plantCommonName.filter(plant =>
+    plant.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <>
       <header>
@@ -22,10 +27,13 @@ export default function Home() {
 
       <section className="all-plants">
         <ul>
-          {plantCommonName.map((plantCommonName, index) => (
-            <Card key={index} name={plantCommonName} />
+          {filteredPlants.map((plant, index) => (
+            <Card key={index} name={plant} />
           ))}
         </ul>
+        {filteredPlants.length === 0 && searchTerm && (
+          <p className="no-results">Sorry, no plants found matching &ldquo;{searchTerm}&rdquo;.</p>
+        )}
       </section>
     </>
   );

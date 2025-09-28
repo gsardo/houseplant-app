@@ -30,7 +30,7 @@ export default function RootLayout({
       >
         <div className="pattern"/>
         <div className="wrapper">
-          <h2>Help for your Green Home</h2>
+          <h2>HousePlant - Help for a greener home</h2>
           <Nav />
           {children}
         </div>

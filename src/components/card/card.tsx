@@ -8,8 +8,7 @@ export function Card({ name }: { name: string }) {
 
             <div className="content">
                 <h3>{name}</h3>
-                <span>•</span>
-                <h5>Plant botanical name</h5>
+                <span>Plant botanical name</span>
             </div>
         </Link>
     )
