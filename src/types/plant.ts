@@ -9,7 +9,7 @@ export interface Plant {
     succulent: boolean;
     lowLight: boolean;
   };
-  careLevel: "easy" | "moderate" | "challenging";
-  lightRequirement: "low" | "medium" | "bright";
-  wateringFrequency: "weekly" | "bi-weekly" | "monthly";
+  careLevel: "Easy" | "Moderate" | "Challenging";
+  lightRequirement: "Low" | "Medium" | "Bright";
+  wateringFrequency: "Weekly" | "Fortnightly" | "Monthly";
 }

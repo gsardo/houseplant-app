@@ -43,15 +43,15 @@ export default async function PlantDetailsPage({ params }: PlantDetailsPageProps
 
           <div className="plant-specs">
             <div className="spec-item">
-              <strong>Care Level:</strong>
-              <span className={`care-level ${plant.careLevel}`}>{plant.careLevel}</span>
+              <strong>Care Level</strong>
+              <span>{plant.careLevel}</span>
             </div>
             <div className="spec-item">
-              <strong>Light Requirement:</strong>
+              <strong>Light Requirement</strong>
               <span>{plant.lightRequirement}</span>
             </div>
             <div className="spec-item">
-              <strong>Watering:</strong>
+              <strong>Watering</strong>
               <span>{plant.wateringFrequency}</span>
             </div>
           </div>
@@ -63,8 +63,8 @@ export default async function PlantDetailsPage({ params }: PlantDetailsPageProps
         <p>
           The {plant.commonName} ({plant.botanicalName}) is a {plant.careLevel}-care plant 
           that thrives in {plant.lightRequirement} light conditions. This plant requires watering 
-          {plant.wateringFrequency === 'weekly' ? ' every week' : 
-           plant.wateringFrequency === 'bi-weekly' ? ' every two weeks' : 
+          {plant.wateringFrequency === 'Weekly' ? ' every week' : 
+           plant.wateringFrequency === 'Fortnightly' ? ' every two weeks' : 
            ' once a month'}, making it {plant.categories.easyCare ? 'perfect for beginners' : 'suitable for more experienced plant parents'}.
           {plant.categories.petFriendly && ' It&apos;s also safe for pets!'}
           {plant.categories.succulent && ' As a succulent, it stores water in its leaves and requires minimal care.'}
