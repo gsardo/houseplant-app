@@ -5,6 +5,7 @@ import { Answers, Recommendation } from "./types";
 import { getInitialAnswers, updateAnswer, areAllAnswered } from "./helpers";
 import { provideRecommendations } from "./recommendations";
 import { QuestionOne, QuestionTwo, QuestionThree } from "./questions";
+import styles from "./questionnaire.module.css";
 
 export function Questionnaire() {
   const [step, setStep] = useState(1);
@@ -29,8 +30,14 @@ export function Questionnaire() {
     setStep(4);
   };
 
+  const reset = () => {
+    setAnswers(getInitialAnswers());
+    setRecommendations([]);
+    setStep(1);
+  };
+
   return (
-    <div>
+    <div className={styles.container}>
       {step === 1 && (
         <QuestionOne
           value={answers.question1}
@@ -53,18 +60,20 @@ export function Questionnaire() {
       )}
 
       {step === 4 && (
-        <ul>
+        <ul className={styles.recommendations}>
           {recommendations.map((rec) => (
-            <li key={rec.id}>
-              {rec.title}
-              {rec.description}
+            <li key={rec.id} className={styles.recommendationItem}>
+              <div className={styles.recommendationTitle}>{rec.title}</div>
+              <div className={styles.recommendationDescription}>
+                {rec.description}
+              </div>
             </li>
           ))}
         </ul>
       )}
 
       {/* Navigation */}
-      <div>
+      <div className={styles.navigation}>
         {step > 1 && step < 4 && <button onClick={goBack}>Back</button>}
 
         {step < 3 && (
@@ -82,6 +91,8 @@ export function Questionnaire() {
         {step === 3 && areAllAnswered(answers) && (
           <button onClick={finish}>Show recommendations</button>
         )}
+
+        {step === 4 && <button onClick={reset}>Start again</button>}
       </div>
     </div>
   );

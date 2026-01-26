@@ -1,3 +1,5 @@
+import styles from "./questionnaire.module.css";
+
 export type QuestionProps = {
   value: string | null;
   onAnswer: (value: string) => void;
@@ -5,7 +7,7 @@ export type QuestionProps = {
 
 export function QuestionOne({ value, onAnswer }: QuestionProps) {
   return (
-    <div>
+    <div className={styles.question}>
       <p>What is your experience level in caring for plants?</p>
       <select value={value ?? ""} onChange={(e) => onAnswer(e.target.value)}>
         <option value="" disabled>
@@ -21,7 +23,7 @@ export function QuestionOne({ value, onAnswer }: QuestionProps) {
 
 export function QuestionTwo({ value, onAnswer }: QuestionProps) {
   return (
-    <div>
+    <div className={styles.question}>
       <p>How much natural light does your home get?</p>
       <select value={value ?? ""} onChange={(e) => onAnswer(e.target.value)}>
         <option value="" disabled>
@@ -39,7 +41,7 @@ export function QuestionTwo({ value, onAnswer }: QuestionProps) {
 
 export function QuestionThree({ value, onAnswer }: QuestionProps) {
   return (
-    <div>
+    <div className={styles.question}>
       <p>Do you have any furry friends in the home?</p>
       <select value={value ?? ""} onChange={(e) => onAnswer(e.target.value)}>
         <option value="" disabled>
