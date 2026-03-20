@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Nav } from "@/components/nav";
+import { SessionProvider } from "@/components/auth/session-provider";
+import { SignInButton } from "@/components/auth/sign-in-button";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,12 +30,17 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="pattern" />
-        <div className="wrapper">
-          <h2>HousePlant - Help for a greener home</h2>
-          <Nav />
-          {children}
-        </div>
+        <SessionProvider>
+          <div className="pattern" />
+          <div className="wrapper">
+            <div className="flex justify-between items-center mb-4">
+              <h2>HousePlant - Help for a greener home</h2>
+              <SignInButton />
+            </div>
+            <Nav />
+            {children}
+          </div>
+        </SessionProvider>
       </body>
     </html>
   );
