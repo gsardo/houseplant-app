@@ -34,3 +34,47 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Database (Prisma + Vercel Postgres)
+
+### Local setup
+
+Add the following to your `.env`:
+
+```env
+# Pooled connection — used by the app at runtime
+DATABASE_URL="postgres://..."
+
+# Direct connection — used by Prisma migrations only
+DIRECT_URL="postgres://..."
+```
+
+Both connection strings are available in the Vercel dashboard under **Storage > your database > .env.local**.
+
+### Generating the Prisma client
+
+The client is auto-generated on `npm install` via the `postinstall` script. To regenerate manually after a schema change:
+
+```bash
+npx prisma generate
+```
+
+The generated client is output to `src/generated/prisma/` and should not be committed to git.
+
+### Running migrations
+
+```bash
+# Create and apply a new migration
+npx prisma migrate dev --name <migration-name>
+
+# Apply pending migrations in production (CI/deploy)
+npx prisma migrate deploy
+```
+
+> Migrations use `DIRECT_URL` to bypass the connection pool, which is required by Prisma.
+
+### Inspecting the database
+
+```bash
+npx prisma studio
+```
