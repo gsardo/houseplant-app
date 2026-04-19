@@ -160,7 +160,7 @@
   }
 
   .nav {
-    @apply w-full max-w-4xl mx-auto;
+    @apply w-full max-w-4xl mx-auto flex flex-row items-center gap-6;
 
     & .nav-list {
       @apply flex flex-row items-center justify-center gap-6 list-none m-0 p-0;

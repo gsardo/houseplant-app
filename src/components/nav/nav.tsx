@@ -1,13 +1,13 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useSession } from "next-auth/react";
 
 const publicNavItems = [
-  { href: "/", label: "Home" },
+  { href: "/plant-matcher", label: "Plant Matcher" },
   { href: "/plant-care", label: "Plant Care" },
   { href: "/articles", label: "Articles" },
-  { href: "/plant-matcher", label: "Plant Matcher" },
 ];
 
 const authNavItems = [
@@ -25,6 +25,7 @@ export function Nav() {
 
   return (
     <nav className="nav">
+      <Link href="/"><Image src="/house-plant-logo.jpg" alt="Logo" width={40} height={100} /></Link>
       <ul className="nav-list">
         {navItems.map((item) => (
           <li key={item.href} className="nav-item">

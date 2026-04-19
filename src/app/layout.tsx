@@ -34,7 +34,6 @@ export default function RootLayout({
           <div className="pattern" />
           <div className="wrapper">
             <div className="flex justify-between items-center mb-4">
-              <h2>HousePlant - Help for a greener home</h2>
               <SignInButton />
             </div>
             <Nav />
