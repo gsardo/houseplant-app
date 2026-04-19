@@ -23,17 +23,17 @@ export default async function PlantDetailsPage({ params }: PlantDetailsPageProps
   return (
     <div className="plant-detail-container">
       <div className="plant-detail-header">
-        <Image 
-          src={plant.image} 
-          alt={plant.commonName} 
-          width={400} 
-          height={400}
-          className="plant-detail-image"
-        />
         <div className="plant-detail-info">
           <h1>{plant.commonName}</h1>
           <h2 className="botanical-name">{plant.botanicalName}</h2>
-          
+          <Image 
+            src={plant.image} 
+            alt={plant.commonName} 
+            width={400} 
+            height={400}
+            className="plant-detail-image"
+          />
+          <h3>Traits</h3>
           <div className="plant-categories">
             {plant.categories.easyCare && <span className="category-tag easy-care">Easy Care</span>}
             {plant.categories.petFriendly && <span className="category-tag pet-friendly">Pet Friendly</span>}
@@ -59,7 +59,6 @@ export default async function PlantDetailsPage({ params }: PlantDetailsPageProps
       </div>
       
       <div className="plant-detail-description">
-        <h3>About {plant.commonName}</h3>
         <p>
           The {plant.commonName} ({plant.botanicalName}) is a {plant.careLevel}-care plant 
           that thrives in {plant.lightRequirement} light conditions. This plant requires watering 
@@ -69,6 +68,8 @@ export default async function PlantDetailsPage({ params }: PlantDetailsPageProps
           {plant.categories.petFriendly && ' It&apos;s also safe for pets!'}
           {plant.categories.succulent && ' As a succulent, it stores water in its leaves and requires minimal care.'}
         </p>
+        <h4>Botanical information</h4>
+        <p>More text to come</p>
       </div>
     </div>
   );

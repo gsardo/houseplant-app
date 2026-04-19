@@ -9,7 +9,6 @@ export function Card({ plant }: { plant: Plant }) {
 
             <div className="content">
                 <h3>{plant.commonName}</h3>
-                <h3 style={{color: "gray"}}>{plant.botanicalName}</h3>
             </div>
         </Link>
     )

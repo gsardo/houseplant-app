@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #030014;
+  --color-primary: #000000;
 
   --color-light-100: #cecefb;
   --color-light-200: #a8b5db;
@@ -20,25 +20,26 @@
 
 @layer base {
   body {
-    font-family: "DM Sans", serif;
+    font-family: "Arial";
     font-optical-sizing: auto;
-    background: #d0cce3;
+    background: #EEF2E5;
+    color:#000000;
   }
 
   h1 {
-    @apply mx-auto max-w-4xl text-center text-5xl font-bold leading-tight tracking-[-1%] text-white sm:text-[64px] sm:leading-[76px];
+    @apply mx-auto max-w-4xl text-center text-5xl font-bold leading-tight tracking-[-1%] sm:text-[64px] sm:leading-[76px];
   }
 
   h2 {
-    @apply mx-auto max-w-4xl text-center text-3xl font-bold leading-tight tracking-[-1%] text-white sm:text-[48px] sm:leading-[56px] mb-4;
+    @apply mx-auto max-w-4xl text-center text-3xl font-bold leading-tight tracking-[-1%] sm:text-[48px] sm:leading-[56px] mb-4;
   }
 
   h3 {
-    @apply mx-auto max-w-4xl text-center text-2xl font-bold leading-tight tracking-[-1%] text-white sm:text-[36px] sm:leading-[44px] mb-3;
+    @apply mx-auto max-w-4xl text-center text-2xl font-bold leading-tight tracking-[-1%] sm:text-[36px] sm:leading-[44px] mb-3;
   }
 
   h4 {
-    @apply mx-auto max-w-4xl text-center text-xl font-bold leading-tight tracking-[-1%] text-white sm:text-[28px] sm:leading-[36px] mb-2;
+    @apply mx-auto max-w-4xl text-center text-xl font-bold leading-tight tracking-[-1%] sm:text-[28px] sm:leading-[36px] mb-2;
   }
 
   main {
@@ -83,11 +84,11 @@
     @apply space-y-9;
 
     & ul {
-      @apply grid grid-cols-2 gap-5 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4;
+      @apply grid grid-cols-2 gap-5 xs:grid-cols-1 md:grid-cols-2 lg:grid-cols-4;
     }
 
     & .no-results {
-      @apply text-center text-white text-lg font-medium mt-8 mx-auto max-w-md;
+      @apply text-center  text-lg font-medium mt-8 mx-auto max-w-md;
     }
   }
 
@@ -99,7 +100,7 @@
     }
 
     & .quick-search-btn {
-      @apply px-4 py-2 bg-white/10 text-white text-sm font-medium rounded-full 
+      @apply px-4 py-2 bg-white/10  text-sm font-medium rounded-full 
              border border-white/20 transition-all duration-200 
              hover:bg-white/20 hover:scale-105 active:scale-95;
     }
@@ -110,22 +111,22 @@
   }
 
   .plant-card {
-    @apply bg-dark-100 p-5 rounded-2xl shadow-inner shadow-light-100/10;
+    @apply bg-white p-5 rounded-2xl shadow-inner shadow-light-100/10;
 
     & img {
       @apply rounded-lg h-auto w-full;
     }
 
     & .content h3 {
-      @apply text-white font-bold text-base line-clamp-1 text-left mx-0 max-w-none mb-0;
+      @apply  font-bold text-base line-clamp-1 text-left mx-0 max-w-none mb-0;
     }
 
     & h4 {
-      @apply text-white font-bold text-base line-clamp-1;
+      @apply  font-bold text-base line-clamp-1;
     }
 
     & h5 {
-      @apply text-white font-bold text-base line-clamp-1;
+      @apply  font-bold text-base line-clamp-1;
     }
 
     & .content {
@@ -141,7 +142,7 @@
     }
 
     & .rating p {
-      @apply font-bold text-base text-white;
+      @apply font-bold text-base ;
     }
 
     & .content span {
@@ -169,7 +170,7 @@
     }
 
     & .nav-link {
-      @apply text-white font-medium text-base hover:text-light-100 transition-colors duration-200 no-underline;
+      @apply  font-medium text-base hover:text-light-100 transition-colors duration-200 no-underline;
     }
 
     & .nav-link:hover {
@@ -193,7 +194,7 @@
     }
 
     & h1 {
-      @apply text-4xl font-bold text-white mb-2 mx-0 max-w-none text-left;
+      @apply text-4xl font-bold  mb-2 mx-0 max-w-none text-left;
     }
 
     & .botanical-name {
@@ -233,7 +234,7 @@
     }
 
     & .spec-item strong {
-      @apply text-white font-semibold min-w-32;
+      @apply  font-semibold min-w-32;
     }
 
     & .spec-item span {
@@ -245,7 +246,7 @@
     }
 
     & .plant-detail-description h3 {
-      @apply text-2xl font-bold text-white mb-4 mx-0 max-w-none text-left;
+      @apply text-2xl font-bold  mb-4 mx-0 max-w-none text-left;
     }
 
     & .plant-detail-description p {
