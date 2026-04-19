@@ -9,6 +9,7 @@ export function Card({ plant }: { plant: Plant }) {
 
             <div className="content">
                 <h3>{plant.commonName}</h3>
+                <p className="hidden lg:block text-sm text-gray-400 mt-1 line-clamp-2">A beautiful houseplant that thrives indoors and brings life to any space.</p>
             </div>
         </Link>
     )

@@ -112,9 +112,10 @@
 
   .plant-card {
     @apply bg-white p-5 rounded-2xl shadow-inner shadow-light-100/10;
+    @apply flex flex-row items-center gap-3 md:flex-col md:items-stretch;
 
     & img {
-      @apply rounded-lg h-auto w-full;
+      @apply rounded-lg h-auto w-20 flex-shrink-0 order-2 md:w-full md:order-first;
     }
 
     & .content h3 {
@@ -130,7 +131,7 @@
     }
 
     & .content {
-      @apply mt-2 flex flex-row items-center flex-wrap gap-2;
+      @apply order-1 flex-1 md:mt-2 md:flex md:flex-row md:items-center md:flex-wrap md:gap-2 lg:flex-col lg:items-start;
     }
 
     & .rating {
@@ -190,7 +191,7 @@
     }
 
     & .plant-detail-info {
-      @apply bg-white/20 rounded-2xl p-6 backdrop-blur-sm;
+      @apply bg-white rounded-2xl p-6 backdrop-blur-sm;
     }
 
     & h1 {
@@ -242,7 +243,7 @@
     }
 
     & .plant-detail-description {
-      @apply bg-white/20 rounded-2xl p-6 backdrop-blur-sm;
+      @apply bg-white rounded-2xl p-6 backdrop-blur-sm;
     }
 
     & .plant-detail-description h3 {
@@ -250,7 +251,7 @@
     }
 
     & .plant-detail-description p {
-      @apply text-gray-400 leading-relaxed text-base;
+      @apply text-black leading-relaxed text-base;
     }
   }
 }

@@ -42,9 +42,7 @@ export default function Home() {
 
   return (
     <>
-      <header>
-        <Image src="/hero.png" alt="Logo"  width={1000} height={2000}/>
-       
+      <header>       
         <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
 
         <h4>Popular searches</h4>
