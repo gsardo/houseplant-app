@@ -1,5 +1,4 @@
 import { auth } from "@/lib/auth";
-import { prisma } from "@/lib/prisma";
 import { redirect } from "next/navigation";
 import Link from "next/link";
 
@@ -7,11 +6,9 @@ export default async function ProfilePage() {
   const session = await auth();
   if (!session?.user?.id) redirect("/sign-in");
 
-  const [favCount, imageCount, recCount] = await Promise.all([
-    prisma.favorite.count({ where: { userId: session.user.id } }),
-    prisma.galleryImage.count({ where: { userId: session.user.id } }),
-    prisma.userRecommendation.count({ where: { userId: session.user.id } }),
-  ]);
+  const favCount = 0;
+  const imageCount = 0;
+  const recCount = 0;
 
   return (
     <div className="max-w-2xl mx-auto px-5 py-12">

@@ -1,16 +1,11 @@
 import { auth } from "@/lib/auth";
-import { prisma } from "@/lib/prisma";
 import { redirect } from "next/navigation";
 
 export default async function FavoritesPage() {
   const session = await auth();
   if (!session?.user?.id) redirect("/sign-in");
 
-  const favorites = await prisma.favorite.findMany({
-    where: { userId: session.user.id },
-    include: { plant: true },
-    orderBy: { createdAt: "desc" },
-  });
+  const favorites: never[] = [];
 
   return (
     <div className="max-w-7xl mx-auto px-5 py-12">
