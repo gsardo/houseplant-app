@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { ChevronLeft } from "lucide-react";
 import { Answers, Recommendation } from "./types";
 import { getInitialAnswers, updateAnswer } from "./helpers";
 import { provideRecommendations } from "./recommendations";
@@ -57,7 +58,7 @@ export function Questionnaire() {
 
       {step === 2 && (
         <>
-          <button onClick={goBack} className={styles.backButton}>← Back</button>
+          <button onClick={goBack} className={styles.backButton}><ChevronLeft size={16} />Back</button>
           <QuestionTwo
             value={answers.question2}
             onAnswer={(value) => {
@@ -70,7 +71,7 @@ export function Questionnaire() {
 
       {step === 3 && (
         <>
-          <button onClick={goBack} className={styles.backButton}>← Back</button>
+          <button onClick={goBack} className={styles.backButton}><ChevronLeft size={16} />Back</button>
           <QuestionThree
             value={answers.question3}
             onAnswer={(value) => {

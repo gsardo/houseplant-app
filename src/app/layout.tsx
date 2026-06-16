@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Nav } from "@/components/nav";
-import { SessionProvider } from "@/components/auth/session-provider";
-import { SignInButton } from "@/components/auth/sign-in-button";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,16 +28,13 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <SessionProvider>
           <div className="pattern" />
-          <div className="wrapper">
-            <div className="flex justify-between items-center mb-4">
-              <SignInButton />
-            </div>
+          <header className="w-full bg-white px-5 xs:px-10 h-25 flex items-center relative z-10">
             <Nav />
+          </header>
+          <div className="wrapper">
             {children}
           </div>
-        </SessionProvider>
       </body>
     </html>
   );

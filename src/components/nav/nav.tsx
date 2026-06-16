@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useSession } from "next-auth/react";
+import { User } from "lucide-react";
 
 const publicNavItems = [
   { href: "/plant-matcher", label: "Plant Matcher" },
@@ -17,15 +17,12 @@ const authNavItems = [
 ];
 
 export function Nav() {
-  const { data: session } = useSession();
 
-  const navItems = session
-    ? [...publicNavItems, ...authNavItems]
-    : publicNavItems;
+  const navItems = publicNavItems;
 
   return (
     <nav className="nav">
-      <Link href="/"><Image src="/house-plant-logo.jpg" alt="Logo" width={40} height={100} /></Link>
+      <Link href="/"><Image src="/hero-logo.jpg" alt="Logo" width={100} height={100} /></Link>
       <ul className="nav-list">
         {navItems.map((item) => (
           <li key={item.href} className="nav-item">
@@ -34,6 +31,11 @@ export function Nav() {
             </Link>
           </li>
         ))}
+        <li className="nav-item">
+          <Link href="/sign-in" className="nav-link">
+            <User size={20} />
+          </Link>
+        </li>
       </ul>
     </nav>
   );
