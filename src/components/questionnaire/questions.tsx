@@ -5,18 +5,44 @@ export type QuestionProps = {
   onAnswer: (value: string) => void;
 };
 
+function PillGroup({
+  options,
+  value,
+  onAnswer,
+}: {
+  options: { value: string; label: string }[];
+  value: string | null;
+  onAnswer: (value: string) => void;
+}) {
+  return (
+    <div className={styles.pills}>
+      {options.map((opt) => (
+        <button
+          key={opt.value}
+          className={`${styles.pill} ${value === opt.value ? styles.pillSelected : ""}`}
+          onClick={() => onAnswer(opt.value)}
+          type="button"
+        >
+          {opt.label}
+        </button>
+      ))}
+    </div>
+  );
+}
+
 export function QuestionOne({ value, onAnswer }: QuestionProps) {
   return (
     <div className={styles.question}>
       <p>What is your experience level in caring for plants?</p>
-      <select value={value ?? ""} onChange={(e) => onAnswer(e.target.value)}>
-        <option value="" disabled>
-          Please select one
-        </option>
-        <option value="beginner">Newbie</option>
-        <option value="intermediate">Intermediate</option>
-        <option value="expert">Confident plant parent</option>
-      </select>
+      <PillGroup
+        value={value}
+        onAnswer={onAnswer}
+        options={[
+          { value: "beginner", label: "Newbie" },
+          { value: "intermediate", label: "Intermediate" },
+          { value: "expert", label: "Confident plant parent" },
+        ]}
+      />
     </div>
   );
 }
@@ -25,16 +51,15 @@ export function QuestionTwo({ value, onAnswer }: QuestionProps) {
   return (
     <div className={styles.question}>
       <p>How much natural light does your home get?</p>
-      <select value={value ?? ""} onChange={(e) => onAnswer(e.target.value)}>
-        <option value="" disabled>
-          Please select one
-        </option>
-        <option value="low">Low light (far from windows)</option>
-        <option value="medium">Medium / indirect light</option>
-        <option value="bright">
-          Bright light (direct sunlight for several hours)
-        </option>
-      </select>
+      <PillGroup
+        value={value}
+        onAnswer={onAnswer}
+        options={[
+          { value: "low", label: "Low light (far from windows)" },
+          { value: "medium", label: "Medium / indirect light" },
+          { value: "bright", label: "Bright light (several hours of sun)" },
+        ]}
+      />
     </div>
   );
 }
@@ -43,13 +68,14 @@ export function QuestionThree({ value, onAnswer }: QuestionProps) {
   return (
     <div className={styles.question}>
       <p>Do you have any furry friends in the home?</p>
-      <select value={value ?? ""} onChange={(e) => onAnswer(e.target.value)}>
-        <option value="" disabled>
-          Please select one
-        </option>
-        <option value="yes">Yes</option>
-        <option value="no">No</option>
-      </select>
+      <PillGroup
+        value={value}
+        onAnswer={onAnswer}
+        options={[
+          { value: "yes", label: "Yes" },
+          { value: "no", label: "No" },
+        ]}
+      />
     </div>
   );
 }

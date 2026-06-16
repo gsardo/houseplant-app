@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Answers, Recommendation } from "./types";
-import { getInitialAnswers, updateAnswer, areAllAnswered } from "./helpers";
+import { getInitialAnswers, updateAnswer } from "./helpers";
 import { provideRecommendations } from "./recommendations";
 import { QuestionOne, QuestionTwo, QuestionThree } from "./questions";
 import styles from "./questionnaire.module.css";
@@ -38,25 +38,47 @@ export function Questionnaire() {
 
   return (
     <div className={styles.container}>
+      <div className={styles.progressBar}>
+        <div
+          className={styles.progressFill}
+          style={{ width: `${(step / 4) * 100}%` }}
+        />
+      </div>
+
       {step === 1 && (
         <QuestionOne
           value={answers.question1}
-          onAnswer={(value) => handleAnswer("question1", value)}
+          onAnswer={(value) => {
+            handleAnswer("question1", value);
+            goNext();
+          }}
         />
       )}
 
       {step === 2 && (
-        <QuestionTwo
-          value={answers.question2}
-          onAnswer={(value) => handleAnswer("question2", value)}
-        />
+        <>
+          <button onClick={goBack} className={styles.backButton}>← Back</button>
+          <QuestionTwo
+            value={answers.question2}
+            onAnswer={(value) => {
+              handleAnswer("question2", value);
+              goNext();
+            }}
+          />
+        </>
       )}
 
       {step === 3 && (
-        <QuestionThree
-          value={answers.question3}
-          onAnswer={(value) => handleAnswer("question3", value)}
-        />
+        <>
+          <button onClick={goBack} className={styles.backButton}>← Back</button>
+          <QuestionThree
+            value={answers.question3}
+            onAnswer={(value) => {
+              handleAnswer("question3", value);
+              finish();
+            }}
+          />
+        </>
       )}
 
       {step === 4 && (
@@ -72,28 +94,11 @@ export function Questionnaire() {
         </ul>
       )}
 
-      {/* Navigation */}
-      <div className={styles.navigation}>
-        {step > 1 && step < 4 && <button onClick={goBack}>Back</button>}
-
-        {step < 3 && (
-          <button
-            onClick={goNext}
-            disabled={
-              (step === 1 && !answers.question1) ||
-              (step === 2 && !answers.question2)
-            }
-          >
-            Next
-          </button>
-        )}
-
-        {step === 3 && areAllAnswered(answers) && (
-          <button onClick={finish}>Show recommendations</button>
-        )}
-
-        {step === 4 && <button onClick={reset}>Start again</button>}
-      </div>
+      {step === 4 && (
+        <div className={styles.navigation}>
+          <button onClick={reset} className={styles.resetButton}>Start again</button>
+        </div>
+      )}
     </div>
   );
 }
