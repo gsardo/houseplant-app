@@ -53,16 +53,14 @@ export default function Home() {
         
       </header>
 
-      <section className="all-plants">
-        <ul>
+      <section className="grid-container">
           {filteredPlants.map((plant) => (
             <Card key={plant.id} plant={plant} />
           ))}
-        </ul>
         {filteredPlants.length === 0 && (searchTerm || activeCategory) && (
           <p className="no-results">
             Sorry, no plants found
-            {searchTerm && ` matching &ldquo;${searchTerm}&rdquo;`}
+            {searchTerm && ` matching "${searchTerm}"`}
             {activeCategory && ` in the selected category`}
             .
           </p>

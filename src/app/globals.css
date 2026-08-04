@@ -83,10 +83,6 @@
   .all-plants {
     @apply space-y-9;
 
-    & ul {
-      @apply grid grid-cols-2 gap-5 xs:grid-cols-1 md:grid-cols-2 lg:grid-cols-4;
-    }
-
     & .no-results {
       @apply text-center  text-lg font-medium mt-8 mx-auto max-w-md;
     }
@@ -254,4 +250,32 @@
       @apply text-black leading-relaxed text-base;
     }
   }
+}
+
+/** practicing grid
+    - add css for body
+    - add css for nav
+    - add css for side filter
+    - expand css for grid container to change based on viewport
+    - expand css for item to change based on viewport
+**/
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1em;
+  margin: 50px auto;
+  width: min(1100px, 95%);
+}
+
+.item {
+  padding: 2em;
+  border-radius: .5em;
+  background: black;
+  color: white;
+  border: 5px solid green;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
 }
