@@ -25,16 +25,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-          <div className="pattern" />
-          <header className="w-full bg-white px-5 xs:px-10 h-25 flex items-center relative z-10">
+      <body>
+          <header>
             <Nav />
           </header>
-          <div className="wrapper">
-            {children}
-          </div>
+          <main className="wrapper">
+          </main>
+          <footer>Footer element</footer>
       </body>
     </html>
   );
