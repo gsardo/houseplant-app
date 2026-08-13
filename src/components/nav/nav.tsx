@@ -16,8 +16,16 @@ export function Nav() {
   return (
     <header className="primary-header flex">
       <div className="logo">HousePlant</div>
+
+      <button className="mobile-nav-toggle" 
+      aria-controls="primary-navigation" aria-expanded="false">
+        <span className="sr-only">
+          <img src="/burger-menu.svg"/>
+        </span>
+      </button>
+
       <nav>
-        <ul className="primary-navigation flex">
+        <ul id="primary-navigation" className="primary-navigation flex">
           {navItems.map((item) => (
             <li key={item.href}>
               <Link href={item.href}>
