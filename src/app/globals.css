@@ -42,7 +42,6 @@ main {
   justify-content: space-between;
   background-color: darkkhaki;
   border-bottom: 2px solid white;
-  backdrop-filter: blur(15px);
 }
 
 .primary-navigation {
@@ -56,6 +55,7 @@ main {
     position: fixed;
     inset: 0 0 0 30%;
     background: steelblue;
+    min-height: 100%;
   }
 }
 
