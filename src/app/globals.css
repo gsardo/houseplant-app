@@ -48,6 +48,10 @@ main {
   border-bottom: 2px solid white;
 }
 
+.mobile-nav-toggle {
+  display: none;
+}
+
 .primary-navigation {
   list-style: none;
   padding: 1rem;
@@ -74,14 +78,23 @@ main {
     background: hsl(0 0% 50% / 0.5);
     min-height: 100%;
     flex-direction: column;
-    padding: 2rem 2rem;
+    padding: 6rem 2rem;
     backdrop-filter: blur(1rem);
     --gap: 2em;
+    transform: translateX(100%);
+  }
+
+  .primary-navigation[data-visible="true"] {
+    transform: translateX(0%);
   }
 
   .mobile-nav-toggle {
+    display: block;
     position: absolute;
     z-index: 9999;
+    border: 0;
+    background-repeat: no-repeat;
+    aspect-ratio: 1;
     top: 2rem;
     right: 2rem;
   }

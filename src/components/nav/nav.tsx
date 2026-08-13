@@ -1,4 +1,5 @@
 "use client";
+import { useState } from "react";
 import Link from "next/link";
 
 const publicNavItems = [
@@ -12,20 +13,22 @@ const publicNavItems = [
 
 export function Nav() {
   const navItems = publicNavItems;
+  const [isNavVisible, setIsNavVisible] = useState(false);
 
   return (
     <header className="primary-header flex">
       <div className="logo">HousePlant</div>
 
-      <button className="mobile-nav-toggle" 
-      aria-controls="primary-navigation" aria-expanded="false">
+      <button className="mobile-nav-toggle"
+      aria-controls="primary-navigation" aria-expanded={isNavVisible}
+      onClick={() => setIsNavVisible((visible) => !visible)}>
         <span className="sr-only">
           <img src="/burger-menu.svg"/>
         </span>
       </button>
 
       <nav>
-        <ul id="primary-navigation" className="primary-navigation flex">
+        <ul id="primary-navigation" data-visible={isNavVisible} className="primary-navigation flex">
           {navItems.map((item) => (
             <li key={item.href}>
               <Link href={item.href}>
