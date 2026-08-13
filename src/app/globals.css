@@ -16,28 +16,43 @@ body {
   font-family: "Poppins", sans-serif;
   background: bisque;
   color: darkolivegreen;
+  margin: 0;
+  min-height: 100%;
 }
 
 main {
   background-color: whitesmoke;
 }
 
-/** add styling to the nav element
-*/  
-nav {
-  width: 100%;
-  padding: 1rem;
+.flex {
+  display: flex;
+  gap: var(--gap, 1rem);
+}
+
+/* primary header */
+.logo {
+  margin: 1.5rem;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: darkslategray;
+}
+
+.primary-header {
+  align-items: center;
+  justify-content: space-between;
   background-color: darkkhaki;
   border-bottom: 2px solid white;
   backdrop-filter: blur(15px);
-  margin-bottom: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+}
+
+.primary-navigation {
+  list-style: none;
+  padding: 1rem;
+  margin: 0;
 }
 
 @media (max-width: 35em) {
-  nav {
+  .primary-navigation {
     position: fixed;
     inset: 0 0 0 30%;
     background: steelblue;
@@ -46,18 +61,6 @@ nav {
 
 /** add class style to be used on specific elements
 */
-.logo {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: darkslategray;
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 2rem;
-}
-
 li a {
   position: relative;
   font-size: 1.05rem;
@@ -67,11 +70,12 @@ li a {
   transition: 0.3s;
 }
 
-.nav-links li a:hover {
+.primary-navigation li a:hover {
   color: mediumseagreen;
   text-shadow: 0 0 0.5px mediumseagreen;
 }
 
+/* button */
 .btns {
   display: flex; 
 }

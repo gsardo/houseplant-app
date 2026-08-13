@@ -14,9 +14,10 @@ export function Nav() {
   const navItems = publicNavItems;
 
   return (
-    <nav>
+    <header className="primary-header flex">
       <div className="logo">HousePlant</div>
-        <ul className="nav-links">
+      <nav>
+        <ul className="primary-navigation flex">
           {navItems.map((item) => (
             <li key={item.href}>
               <Link href={item.href}>
@@ -25,9 +26,7 @@ export function Nav() {
             </li>
           ))}
         </ul>
-      <div className="btns">
-        <button className="btn">Login</button>
-      </div>
-    </nav>
+      </nav>
+    </header>
   );
 }

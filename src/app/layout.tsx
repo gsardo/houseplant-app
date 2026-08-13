@@ -26,12 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-          <header>
             <Nav />
-          </header>
-          <main className="wrapper">
-          </main>
-          <footer>Footer element</footer>
       </body>
     </html>
   );
