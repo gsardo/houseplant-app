@@ -17,7 +17,9 @@ export function Nav() {
 
   return (
     <header className="primary-header flex">
-      <div className="logo">HousePlant</div>
+      <div>
+        <img className="logo" src="/logo.png"/>
+      </div>
 
       <button className="mobile-nav-toggle"
       aria-controls="primary-navigation" aria-expanded={isNavVisible}

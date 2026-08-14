@@ -32,9 +32,9 @@ main {
 /* primary header */
 .logo {
   margin: 1.5rem;
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: darkslategray;
+  width: 7.5rem;
+  height: 5rem;
+  aspect-ratio: 1;
 }
 
 .sr-only {
