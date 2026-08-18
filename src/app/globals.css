@@ -29,6 +29,11 @@ main {
   gap: var(--gap, 2rem);
 }
 
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
 /* primary header */
 .logo {
   margin: 1.5rem;

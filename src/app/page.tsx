@@ -42,17 +42,6 @@ export default function Home() {
 
   return (
     <>
-      <header>       
-        <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-
-        <h4>Popular searches</h4>
-        <QuickSearch 
-          activeCategory={activeCategory} 
-          onCategorySelect={setActiveCategory} 
-        />
-        
-      </header>
-
       <section className="grid-container">
           {filteredPlants.map((plant) => (
             <Card key={plant.id} plant={plant} />
