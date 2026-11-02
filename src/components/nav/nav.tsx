@@ -7,6 +7,7 @@ const publicNavItems = [
   { href: "/plant-matcher", label: "Plant Matcher" },
   { href: "/plant-care", label: "Plant Care" },
   { href: "/articles", label: "Articles" },
+  { href: "/about", label: "About"},
 ];
 
 
