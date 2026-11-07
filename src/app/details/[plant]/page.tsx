@@ -13,7 +13,7 @@ export default async function PlantDetailsPage({ params }: PlantDetailsPageProps
 
   if (!plant) {
     return (
-      <div className="plant-detail-container">
+      <div id="plant-detail">
         <h1>Plant Not Found</h1>
         <p>Sorry, we couldn&apos;t find information about this plant.</p>
       </div>
@@ -21,36 +21,35 @@ export default async function PlantDetailsPage({ params }: PlantDetailsPageProps
   }
 
   return (
-    <div className="plant-detail-container">
-      <div className="plant-detail-header">
-        <div className="plant-detail-info">
+    <div id="plant-detail">
+      <div>
+        <div id="plant-detail-info">
           <h1>{plant.commonName}</h1>
-          <h2 className="botanical-name">{plant.botanicalName}</h2>
+          <h2>{plant.botanicalName}</h2>
           <Image 
             src={plant.image} 
             alt={plant.commonName} 
             width={400} 
             height={400}
-            className="plant-detail-image"
           />
           <h3>Traits</h3>
-          <div className="plant-categories">
-            {plant.categories.easyCare && <span className="category-tag easy-care">Easy Care</span>}
-            {plant.categories.petFriendly && <span className="category-tag pet-friendly">Pet Friendly</span>}
-            {plant.categories.succulent && <span className="category-tag succulent">Succulent</span>}
-            {plant.categories.lowLight && <span className="category-tag low-light">Low Light</span>}
+          <div id="plant-tags">
+            {plant.categories.easyCare && <span>Easy Care</span>}
+            {plant.categories.petFriendly && <span>Pet Friendly</span>}
+            {plant.categories.succulent && <span>Succulent</span>}
+            {plant.categories.lowLight && <span>Low Light</span>}
           </div>
 
-          <div className="plant-specs">
-            <div className="spec-item">
+          <div id="plant-specs">
+            <div>
               <strong>Care Level</strong>
               <span>{plant.careLevel}</span>
             </div>
-            <div className="spec-item">
+            <div>
               <strong>Light Requirement</strong>
               <span>{plant.lightRequirement}</span>
             </div>
-            <div className="spec-item">
+            <div>
               <strong>Watering</strong>
               <span>{plant.wateringFrequency}</span>
             </div>
@@ -58,7 +57,7 @@ export default async function PlantDetailsPage({ params }: PlantDetailsPageProps
         </div>
       </div>
       
-      <div className="plant-detail-description">
+      <div id="plant-description">
         <p>
           The {plant.commonName} ({plant.botanicalName}) is a {plant.careLevel}-care plant 
           that thrives in {plant.lightRequirement} light conditions. This plant requires watering 

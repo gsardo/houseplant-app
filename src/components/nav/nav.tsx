@@ -17,21 +17,17 @@ export function Nav() {
   const [isNavVisible, setIsNavVisible] = useState(false);
 
   return (
-    <header className="primary-header flex">
-      <div>
-        <img className="logo" src="/logo.png"/>
-      </div>
+    <header id="primary-header">
+      <img id="logo" src="/logo.png" alt="HousePlant"/>
 
-      <button className="mobile-nav-toggle"
+      <button id="nav-toggle"
       aria-controls="primary-navigation" aria-expanded={isNavVisible}
       onClick={() => setIsNavVisible((visible) => !visible)}>
-        <span className="sr-only">
-          <img src="/burger-menu.svg"/>
-        </span>
+        <img src="/burger-menu.svg" alt="Menu"/>
       </button>
 
       <nav>
-        <ul id="primary-navigation" data-visible={isNavVisible} className="primary-navigation flex">
+        <ul id="primary-navigation" data-visible={isNavVisible}>
           {navItems.map((item) => (
             <li key={item.href}>
               <Link href={item.href}>

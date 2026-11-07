@@ -8,14 +8,11 @@ export default function ArticlesPage() {
   const otherArticles = articlesData.filter((a) => a.id !== featured?.id);
 
   return (
-    <div className="max-w-4xl mx-auto px-5 py-12">
+    <>
       <h2>Articles</h2>
-
       {featured && <FeaturedArticle article={featured} />}
-
       <CategoryFilter />
-
       <ArticleList articles={otherArticles} />
-    </div>
+    </>
   );
 }

@@ -3,7 +3,7 @@ import { ArticleCard } from "./article-card";
 
 export function ArticleList({ articles }: { articles: Article[] }) {
   return (
-    <div className="flex flex-col gap-6">
+    <div id="article-list">
       {articles.map((article) => (
         <ArticleCard key={article.id} article={article} />
       ))}

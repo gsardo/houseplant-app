@@ -1,251 +1,357 @@
+/* ==========================================================================
+   HousePlant – global styles
+   Every element is styled through its ID (or a child of an ID'd container),
+   so repeated items (cards, pills, list rows) share one look per section.
+   Layouts use CSS grid and adapt on their own with auto-fit, so the only
+   media query is the mobile navigation drawer.
+   ========================================================================== */
+
+/* ---------- Colour + spacing tokens (original palette) ---------- */
+:root {
+  --bg: bisque;
+  --text: darkolivegreen;
+  --surface: whitesmoke;
+  --header: darkkhaki;
+  --accent: darkslategray;
+  --card: black;
+  --card-text: white;
+  --card-border: green;
+  --gap: 1.5rem;
+  --radius: 0.5rem;
+}
+
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
 
-/** practicing grid
-    - add css for body
-    - add css for nav
-    - add css for side filter
-    - expand css for grid container to change based on viewport
-    - expand css for item to change based on viewport
-**/
-
 body {
   font-family: "Poppins", sans-serif;
-  background: bisque;
-  color: darkolivegreen;
-  margin: 0;
-  min-height: 100%;
-}
-
-main {
-  background-color: whitesmoke;
-}
-
-.flex {
-  display: flex;
-  gap: var(--gap, 2rem);
-}
-
-.grid {
+  background: var(--bg);
+  color: var(--text);
+  margin: 0 auto;
+  width: 90%;
+  max-width: 70rem;
+  min-height: 100vh;
   display: grid;
-  gap: 1.5rem;
+  grid-template-rows: auto 1fr;
 }
 
-/* primary header */
-.logo {
-  margin: 1.5rem;
-  width: 7.5rem;
-  height: 5rem;
-  aspect-ratio: 1;
+img {
+  max-width: 100%;
+  height: auto;
 }
 
-.primary-header {
+/* ---------- Page container: every page's content sits in here ---------- */
+#page {
+  background: var(--surface);
+  padding: var(--gap);
+  display: grid;
+  gap: var(--gap);
+  align-content: start;
+}
+
+#page h1,
+#page h2,
+#page h3,
+#page h4,
+#page p {
+  margin: 0;
+}
+
+/* ---------- Primary header + navigation ---------- */
+#primary-header {
+  display: grid;
+  grid-template-columns: auto 1fr;
   align-items: center;
-  justify-content: space-between;
-  background-color: darkkhaki;
+  background: var(--header);
   border-bottom: 2px solid white;
 }
 
-.mobile-nav-toggle {
-  display: none;
+#logo {
+  margin: 1.5rem;
+  width: 7.5rem;
+  height: 5rem;
+  object-fit: contain;
 }
 
-.primary-navigation {
+#primary-header nav {
+  justify-self: end;
+}
+
+#primary-navigation {
+  display: grid;
+  grid-auto-flow: column;
+  gap: 2rem;
   list-style: none;
-  padding: 1rem;
   margin: 0;
+  padding: 1rem;
 }
 
-.mobile-nav-toggle {
-  width: 2rem;
-  aspect-ratio: 1;
-  background-repeat: no-repeat;
-  border: 0;
-}
-
-.mobile-nav-toggle img {
-  width: 100%;
-  height: 100%;
-}
-
-@media (max-width: 35em) {
-  .primary-navigation {
-    position: fixed;
-    z-index: 1000;
-    inset: 0 0 0 40%;
-    background: hsl(0 0% 50% / 0.5);
-    min-height: 100%;
-    flex-direction: column;
-    padding: 6rem 2rem;
-    backdrop-filter: blur(1rem);
-    --gap: 2em;
-    transform: translateX(100%);
-  }
-
-  .primary-navigation[data-visible="true"] {
-    transform: translateX(0%);
-  }
-
-  .mobile-nav-toggle {
-    display: block;
-    position: absolute;
-    z-index: 9999;
-    border: 0;
-    background-repeat: no-repeat;
-    aspect-ratio: 1;
-    top: 2rem;
-    right: 2rem;
-  }
-}
-
-/** add class style to be used on specific elements
-*/
-li a {
-  position: relative;
+#primary-navigation a {
   font-size: 1.05rem;
   font-weight: 100;
   text-decoration: none;
   color: white;
   transition: 0.3s;
-  margin: 1rem;
 }
 
-.primary-navigation li a:hover {
-  color: darkslategray;
-  text-shadow: 0 0 0.5px darkslategray;
+#primary-navigation a:hover {
+  color: var(--accent);
+  text-shadow: 0 0 0.5px var(--accent);
 }
 
-/* button */
-.btns {
-  display: flex; 
+#nav-toggle {
+  display: none;
+  width: 2rem;
+  aspect-ratio: 1;
+  border: 0;
+  background: none;
 }
 
-.btn {
-  padding: 0.25rem 0.5rem;
+#nav-toggle img {
+  width: 100%;
+  height: 100%;
+}
+
+/* The one media query: nav becomes a slide-in drawer on small screens */
+@media (max-width: 35em) {
+  #nav-toggle {
+    display: block;
+    position: absolute;
+    z-index: 9999;
+    top: 2rem;
+    right: 2rem;
+  }
+
+  #primary-navigation {
+    position: fixed;
+    z-index: 1000;
+    inset: 0 0 0 40%;
+    grid-auto-flow: row;
+    align-content: start;
+    padding: 6rem 2rem;
+    background: hsl(0 0% 50% / 0.5);
+    backdrop-filter: blur(1rem);
+    transform: translateX(100%);
+  }
+
+  #primary-navigation[data-visible="true"] {
+    transform: translateX(0);
+  }
+}
+
+/* ---------- Page header (About) ---------- */
+#page-header {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  gap: var(--gap);
+  align-items: center;
+  padding: var(--gap);
+  background: var(--header);
+  color: var(--accent);
+  border-radius: var(--radius);
+}
+
+#page-logo {
+  width: 7.5rem;
+  height: 5rem;
+  object-fit: contain;
+}
+
+/* ---------- Shared grids: one responsive grid for every list ---------- */
+#plant-grid,
+#care-tips-grid,
+#problems-grid,
+#article-list,
+#favourites-grid,
+#plant-specs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: var(--gap);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#no-results {
+  grid-column: 1 / -1;
+}
+
+/* ---------- Shared card: every repeated item looks the same ---------- */
+#plant-grid > a,
+#care-tips-grid > article,
+#problems-grid > article,
+#article-list > article,
+#favourites-grid > li,
+#plant-specs > div,
+#featured-article {
+  display: grid;
+  align-content: start;
+  gap: 1rem;
+  padding: 1.5rem;
+  border: 5px solid var(--card-border);
+  border-radius: var(--radius);
+  background: var(--card);
+  color: var(--card-text);
+}
+
+#plant-grid > a {
+  text-align: center;
+  text-decoration: none;
+}
+
+#plant-grid img {
+  justify-self: center;
+}
+
+#plant-grid h3,
+#care-tips-grid h4,
+#problems-grid h4,
+#article-list h4,
+#favourites-grid h3,
+#featured-article h4 {
+  margin: 0;
+}
+
+/* ---------- Pills (tags, badges) ---------- */
+#problems-grid ul,
+#article-list ul,
+#plant-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#problems-grid li,
+#article-list li,
+#plant-tags span,
+#care-tips-grid [data-level],
+#featured-article mark {
+  padding: 0.15rem 0.75rem;
   border-radius: 400px;
-  font-weight: 100;
-  font-size: 1rem;
-  background-color: darkslategray;
+  font-size: 0.8rem;
+  background: var(--text);
   color: white;
+  justify-self: start;
+}
+
+#care-tips-grid [data-level="beginner"] { background: green; }
+#care-tips-grid [data-level="intermediate"] { background: var(--header); color: black; }
+#care-tips-grid [data-level="advanced"] { background: firebrick; }
+
+/* ---------- Buttons ---------- */
+#category-filter,
+#about-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+}
+
+#category-filter button,
+#about-tabs button {
+  padding: 0.25rem 1rem;
   border: none;
+  border-radius: 400px;
+  font-size: 1rem;
+  font-weight: 100;
+  background: var(--accent);
+  color: white;
   cursor: pointer;
   transition: 0.3s;
 }
 
-footer {
-  background-color: darkolivegreen;
-  color: white;
+#category-filter button:hover,
+#about-tabs button:hover,
+#about-tabs button.active {
+  background: var(--text);
 }
 
-.funky-font {
-  color:blueviolet
+/* ---------- Care page ---------- */
+#care-tips-grid article > span:first-child {
+  font-size: 2rem;
 }
 
-.grid-container {
+#problems-grid em {
+  color: lightcoral;
+}
+
+#problems-grid p:last-of-type {
+  color: lightgreen;
+}
+
+/* ---------- Articles page ---------- */
+#featured-article {
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  align-items: center;
+}
+
+#featured-visual {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1em;
-  margin: 50px auto;
-  width: min(1100px, 95%);
+  place-items: center;
+  min-height: 10rem;
+  font-size: 3rem;
+  border-radius: var(--radius);
+  background: hsl(0 0% 100% / 0.1);
 }
 
-.item {
-  padding: 2em;
-  border-radius: .5em;
-  background: black;
-  color: white;
-  border: 5px solid green;
-  text-align: center;
+#featured-article footer,
+#article-list footer {
   display: flex;
-  flex-direction: column;
-  gap: 1em;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  font-size: 0.8rem;
 }
 
-/* .tutorialStyle {
-  width: 150px;
-  height: 100px;
-  margin: 50px;
-  border: 1px solid;
-  padding: 20px;
-  outline: 50px;
-  color: red;
-  background-color: blue;
-  outline-width: 20px;
-  overflow: auto;
+#article-list article[data-category="beginners"] { border-color: green; }
+#article-list article[data-category="advanced"]  { border-color: var(--accent); }
+#article-list article[data-category="seasonal"]  { border-color: peru; }
+#article-list article[data-category="diy"]       { border-color: var(--header); }
+
+/* ---------- Plant details page ---------- */
+#plant-detail {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  gap: var(--gap);
 }
 
-article p:first-of-type {
-  color: green;
-  font-size: 1.5em;
-} */
-
-/** pseudo-class styling uses one colon :
-*/
-/* section p:nth-child(even) {
-  background:orange;
-  width: 300px;
+#plant-detail-info,
+#plant-description {
+  display: grid;
+  align-content: start;
+  gap: 1rem;
 }
 
-a:hover {
-  outline: 1px dotted green;
-} */
-
-/** pseudo-element styling uses two colon ::
-*/
-/* li::marker {
-  color: orangered;
-}
-::selection {
-  background:yellow;
-  color:aquamarine;
-}
-
-p strong {
-  color: purple;
-} */
-
-
-#tabs {
-  max-width: 32rem;
-  margin: 2rem 0;
-  overflow: hidden;
-}
-
-#tabs menu {
+#plant-detail h1,
+#plant-detail h2,
+#plant-detail h3,
+#plant-detail h4,
+#plant-detail p {
   margin: 0;
-  padding: 0;
-  display: flex;
+}
+
+#plant-detail-info img {
+  border-radius: var(--radius);
+}
+
+#plant-specs {
+  grid-template-columns: 1fr;
+}
+
+#plant-specs > div {
   gap: 0.25rem;
-}
-
-#tabs button {
-  font: inherit;
-  font-size: 0.85rem;
-  background-color: #282f33;
-  border: none;
-  border-bottom-color: #48d9f3;
-  color: #e0eff1;
-  border-radius: 4px 4px 0 0;
-  padding: 0.75rem 1rem;
-  cursor: pointer;
-  transition: all 0.2s ease-out;
-}
-
-#tabs button:hover,
-#tabs button.active {
-  background-color: #48d9f3;
-  color: #273133;
-}
-
-#tab-content {
-  background-color: #2d3942;
-  border-radius: 0 4px 4px 4px;
   padding: 1rem;
 }
 
-#tab-content li {
-  margin: 0.75rem 0;
+/* ---------- About page ---------- */
+#about-content {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+  padding-left: 1.25rem;
 }

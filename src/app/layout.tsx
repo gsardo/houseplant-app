@@ -26,8 +26,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-            <Nav />
-            {children}
+        <Nav />
+        <main id="page">{children}</main>
       </body>
     </html>
   );

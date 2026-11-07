@@ -1,5 +1,7 @@
 "use client"
 import { useState } from 'react';
+import { Header } from '../../components/header/header';
+import { PlantOfTheDay, FavouritePlants } from '../../components/plant-of-the-day/plant-of-the-day';
 
 const content = [
     [
@@ -22,53 +24,44 @@ const content = [
     ]
 ]
 
+
+
+const tabs = ["Why HousePlant?", "Core features", "Recommended resources", "Acknowledgements"];
+
 export default function About() {
     const [activeContextIndex, setActiveContextIndex] = useState(0);
 
     return (
-        <div>
-            <header>
-                <div>
-                    <h1>About HousePlant</h1>
-                    <p>Care for your plants and get some free tips</p>
-                </div>
-            </header>
-
-            <div id="tabs">
-                <menu>
-                    <button
-                        className={activeContextIndex === 0 ? "active" : ""}
-                        onClick={() => setActiveContextIndex(0)}
-                    >
-                        Why HousePlant?
-                    </button>
-                    <button
-                        className={activeContextIndex === 1 ? "active" : ""}
-                        onClick={() => setActiveContextIndex(1)}
-                    >
-                        Core features
-                    </button>
-                    <button
-                        className={activeContextIndex === 2 ? "active" : ""}
-                        onClick={() => setActiveContextIndex(2)}
-                    >
-                        Recommended resources
-                    </button>
-                    <button
-                        className={activeContextIndex === 3 ? "active" : ""}
-                        onClick={() => setActiveContextIndex(3)}
-                    >
-                        Acknowledgements
-                    </button>
+        <>
+            <Header />
+            <PlantOfTheDay />
+            <section>
+                <h2>My Favourite Plants</h2>
+                <ul id="favourites-grid">
+                    <FavouritePlants title='Monsterra' description='Huge green leafs' />
+                    <FavouritePlants title='Boston fern' description='Bushy and wild' />
+                    <FavouritePlants title='Boston fern' description='Bushy and wild' />
+                    <FavouritePlants title='Boston fern' description='Bushy and wild' />
+                </ul>
+            </section>
+            <section>
+                <menu id="about-tabs">
+                    {tabs.map((label, index) => (
+                        <button
+                            key={label}
+                            className={activeContextIndex === index ? "active" : ""}
+                            onClick={() => setActiveContextIndex(index)}
+                        >
+                            {label}
+                        </button>
+                    ))}
                 </menu>
-                <div id="tab-content">
-                    <ul>
-                        {content[activeContextIndex].map((item) => (
-                            <li key={item}>{item}</li>
-                        ))}
-                    </ul>
-                </div>
-            </div>
-        </div>
+                <ul id="about-content">
+                    {content[activeContextIndex].map((item) => (
+                        <li key={item}>{item}</li>
+                    ))}
+                </ul>
+            </section>
+        </>
     )
 }
