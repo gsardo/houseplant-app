@@ -6,6 +6,7 @@ import { Answers, Recommendation } from "./types";
 import { getInitialAnswers, updateAnswer } from "./helpers";
 import { provideRecommendations } from "./recommendations";
 import { QuestionOne, QuestionTwo, QuestionThree } from "./questions";
+import { Badge } from '../../components/badge/badge';
 import styles from "./questionnaire.module.css";
 
 export function Questionnaire() {
@@ -100,6 +101,10 @@ export function Questionnaire() {
           <button onClick={reset} className={styles.resetButton}>Start again</button>
         </div>
       )}
+
+      <Badge label='Created by GS'>
+        <p>Made in Sydney</p>
+      </Badge>
     </div>
   );
 }

@@ -1,3 +1,4 @@
+import "./articles.css";
 const categories = [
   { label: "All", value: "all" },
   { label: "Beginners", value: "beginners" },

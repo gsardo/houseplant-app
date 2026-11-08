@@ -1,3 +1,4 @@
+import "./details.css";
 import { getPlantBySlug } from "@/data/plants";
 import Image from "next/image";
 

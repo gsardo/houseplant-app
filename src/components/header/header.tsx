@@ -1,3 +1,4 @@
+import "./header.css";
 export function Header() {
     return (
         <header id="page-header">

@@ -1,0 +1,115 @@
+/* ---------- Articles: filter, featured article, article list ---------- */
+#category-filter {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+}
+
+#category-filter button {
+  padding: 0.25rem 1rem;
+  border: none;
+  border-radius: 400px;
+  font-size: 1rem;
+  font-weight: 100;
+  background: var(--accent);
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#category-filter button:hover {
+  background: var(--text);
+}
+
+#featured-article {
+  display: grid;
+  align-content: start;
+  gap: 1rem;
+  padding: 1.5rem;
+  border: 5px solid var(--card-border);
+  border-radius: var(--radius);
+  background: var(--card);
+  color: var(--card-text);
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  align-items: center;
+}
+
+#featured-article h4 {
+  margin: 0;
+}
+
+#featured-article mark {
+  padding: 0.15rem 0.75rem;
+  border-radius: 400px;
+  font-size: 0.8rem;
+  background: var(--text);
+  color: white;
+  justify-self: start;
+}
+
+#featured-visual {
+  display: grid;
+  place-items: center;
+  min-height: 10rem;
+  font-size: 3rem;
+  border-radius: var(--radius);
+  background: hsl(0 0% 100% / 0.1);
+}
+
+#article-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: var(--gap);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#article-list > article {
+  display: grid;
+  align-content: start;
+  gap: 1rem;
+  padding: 1.5rem;
+  border: 5px solid var(--card-border);
+  border-radius: var(--radius);
+  background: var(--card);
+  color: var(--card-text);
+}
+
+#article-list h4 {
+  margin: 0;
+}
+
+#article-list ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#article-list li {
+  padding: 0.15rem 0.75rem;
+  border-radius: 400px;
+  font-size: 0.8rem;
+  background: var(--text);
+  color: white;
+  justify-self: start;
+}
+
+#featured-article footer,
+#article-list footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  font-size: 0.8rem;
+}
+
+#article-list article[data-category="beginners"] { border-color: green; }
+#article-list article[data-category="advanced"]  { border-color: var(--accent); }
+#article-list article[data-category="seasonal"]  { border-color: peru; }
+#article-list article[data-category="diy"]       { border-color: var(--header); }

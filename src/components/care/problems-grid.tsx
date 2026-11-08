@@ -1,3 +1,4 @@
+import "./care.css";
 import { CommonProblem } from "@/types/care";
 import { ProblemCard } from "./problem-card";
 

@@ -1,0 +1,62 @@
+/* ---------- Care: tips grid + problems grid ---------- */
+#care-tips-grid,
+#problems-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: var(--gap);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#care-tips-grid > article,
+#problems-grid > article {
+  display: grid;
+  align-content: start;
+  gap: 1rem;
+  padding: 1.5rem;
+  border: 5px solid var(--card-border);
+  border-radius: var(--radius);
+  background: var(--card);
+  color: var(--card-text);
+}
+
+#care-tips-grid h4,
+#problems-grid h4 {
+  margin: 0;
+}
+
+#care-tips-grid article > span:first-child {
+  font-size: 2rem;
+}
+
+#care-tips-grid [data-level],
+#problems-grid li {
+  padding: 0.15rem 0.75rem;
+  border-radius: 400px;
+  font-size: 0.8rem;
+  background: var(--text);
+  color: white;
+  justify-self: start;
+}
+
+#problems-grid ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#care-tips-grid [data-level="beginner"] { background: green; }
+#care-tips-grid [data-level="intermediate"] { background: var(--header); color: black; }
+#care-tips-grid [data-level="advanced"] { background: firebrick; }
+
+#problems-grid em {
+  color: lightcoral;
+}
+
+#problems-grid p:last-of-type {
+  color: lightgreen;
+}

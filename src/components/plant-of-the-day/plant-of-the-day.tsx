@@ -1,3 +1,4 @@
+import "./plant-of-the-day.css";
 const plantOfTheDay = ['Fiddle leaf fig', 'Cactus', 'Calithea', 'Monsterra', 'Fern'];
 
 function getRandomPlant(max: number) {

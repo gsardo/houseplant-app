@@ -1,3 +1,4 @@
+import "./articles.css";
 import { Article } from "@/types/article";
 
 export function FeaturedArticle({ article }: { article: Article }) {

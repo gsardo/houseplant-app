@@ -1,0 +1,24 @@
+/* ---------- Favourite plants ---------- */
+#favourites-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: var(--gap);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#favourites-grid > li {
+  display: grid;
+  align-content: start;
+  gap: 1rem;
+  padding: 1.5rem;
+  border: 5px solid var(--card-border);
+  border-radius: var(--radius);
+  background: var(--card);
+  color: var(--card-text);
+}
+
+#favourites-grid h3 {
+  margin: 0;
+}

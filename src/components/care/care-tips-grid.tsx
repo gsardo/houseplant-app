@@ -1,3 +1,4 @@
+import "./care.css";
 import { CareTip } from "@/types/care";
 import { CareTipCard } from "./care-tip-card";
 

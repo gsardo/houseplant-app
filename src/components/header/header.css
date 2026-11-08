@@ -1,0 +1,17 @@
+/* ---------- Page header (About) ---------- */
+#page-header {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  gap: var(--gap);
+  align-items: center;
+  padding: var(--gap);
+  background: var(--header);
+  color: var(--accent);
+  border-radius: var(--radius);
+}
+
+#page-logo {
+  width: 7.5rem;
+  height: 5rem;
+  object-fit: contain;
+}

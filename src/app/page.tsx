@@ -1,4 +1,5 @@
 "use client";
+import "./home.css";
 
 import { Card } from "@/components/card";
 import { Search } from '@/components/search';

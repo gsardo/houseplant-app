@@ -1,7 +1,9 @@
 "use client"
+import "./about.css";
 import { useState } from 'react';
 import { Header } from '../../components/header/header';
-import { PlantOfTheDay, FavouritePlants } from '../../components/plant-of-the-day/plant-of-the-day';
+import { FavouritePlants } from '../../components/plant-of-the-day/plant-of-the-day';
+import { TabButton } from '../../components/tab-button/tab-button';
 
 const content = [
     [
@@ -24,9 +26,14 @@ const content = [
     ]
 ]
 
-
-
 const tabs = ["Why HousePlant?", "Core features", "Recommended resources", "Acknowledgements"];
+
+const favouritePlants = [
+    {title: 'Monsterra', description: 'Huge green leaves'},
+    {title: 'Boston fern', description: 'Bushy and wild'},
+    {title:'Pothos', description:'Hangs and very chill'},
+    {title:'Peace lily', description: 'Contrasting leaves and flower'},
+]
 
 export default function About() {
     const [activeContextIndex, setActiveContextIndex] = useState(0);
@@ -34,33 +41,22 @@ export default function About() {
     return (
         <>
             <Header />
-            <PlantOfTheDay />
             <section>
                 <h2>My Favourite Plants</h2>
                 <ul id="favourites-grid">
-                    <FavouritePlants title='Monsterra' description='Huge green leafs' />
-                    <FavouritePlants title='Boston fern' description='Bushy and wild' />
-                    <FavouritePlants title='Boston fern' description='Bushy and wild' />
-                    <FavouritePlants title='Boston fern' description='Bushy and wild' />
+                   {favouritePlants.map((plant) => (
+                    <FavouritePlants title={plant.title} description={plant.description}/>
+                   ))}
                 </ul>
             </section>
-            <section>
-                <menu id="about-tabs">
-                    {tabs.map((label, index) => (
-                        <button
-                            key={label}
-                            className={activeContextIndex === index ? "active" : ""}
-                            onClick={() => setActiveContextIndex(index)}
-                        >
-                            {label}
-                        </button>
-                    ))}
-                </menu>
-                <ul id="about-content">
-                    {content[activeContextIndex].map((item) => (
-                        <li key={item}>{item}</li>
-                    ))}
-                </ul>
+            <section id="examples">
+                <h2>About House Plant</h2>
+                   <menu>
+                    <TabButton>Why HousePlant?</TabButton>
+                    <TabButton>Features</TabButton>
+                    <TabButton>References</TabButton>
+                    <TabButton>Credits</TabButton>
+                   </menu>
             </section>
         </>
     )
