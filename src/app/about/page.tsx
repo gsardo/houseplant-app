@@ -51,6 +51,7 @@ export default function About() {
         <ul id="favourites-grid">
           {favouritePlants.map((plant) => (
             <FavouritePlants
+              key={plant.title}
               title={plant.title}
               description={plant.description}
             />
