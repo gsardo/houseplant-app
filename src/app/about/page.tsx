@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Header } from "../../components/header/header";
 import { FavouritePlants } from "../../components/plant-of-the-day/plant-of-the-day";
 import { TabButton } from "../../components/tab-button/tab-button";
+import "./about.css";
 
 const content = [
   [
@@ -41,6 +42,7 @@ export default function About() {
   function handleSelect(selectedTab: number) {
     setSelectedTab(selectedTab);
   }
+
   return (
     <>
       <Header />
@@ -58,15 +60,33 @@ export default function About() {
       <section id="examples">
         <h2>About House Plant</h2>
         <menu>
-          <TabButton onSelect={() => handleSelect(0)}>
+          <TabButton
+            isSelected={currentTab === 0}
+            onSelect={() => handleSelect(0)}
+          >
             Why HousePlant?
           </TabButton>
-          <TabButton onSelect={() => handleSelect(1)}>Features</TabButton>
-          <TabButton onSelect={() => handleSelect(2)}>References</TabButton>
-          <TabButton onSelect={() => handleSelect(3)}>Credits</TabButton>
+          <TabButton
+            isSelected={currentTab === 1}
+            onSelect={() => handleSelect(1)}
+          >
+            Features
+          </TabButton>
+          <TabButton
+            isSelected={currentTab === 2}
+            onSelect={() => handleSelect(2)}
+          >
+            References
+          </TabButton>
+          <TabButton
+            isSelected={currentTab === 3}
+            onSelect={() => handleSelect(3)}
+          >
+            Credits
+          </TabButton>
         </menu>
         <div id="tab-content">
-          <p>{content[currentTab]}</p>
+          <li>{content[currentTab]}</li>
         </div>
       </section>
     </>

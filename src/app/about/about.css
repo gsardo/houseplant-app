@@ -1,6 +1,6 @@
 /* ---------- About page ---------- */
 #examples {
-  margin: 3rem auto;
+  margin: 3rem 0;
 }
 
 #examples h2 {
@@ -40,7 +40,7 @@
 #tab-content {
   padding: 1rem;
   border-radius: 6px;
-  background-color: #2f1d43;
+  background-color: #0fcda7;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
