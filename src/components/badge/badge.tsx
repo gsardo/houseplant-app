@@ -1,3 +1,5 @@
+import './badge.css';
+
 export function Badge(props: {label: string, children: any}) {
     return (
         <article>
