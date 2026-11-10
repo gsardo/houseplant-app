@@ -16,8 +16,9 @@ export function AboutHousePlantSection() {
             key={index}
             isSelected={currentTab === index}
             onSelect={() => handleSelect(index)}
-            children={label}
-          />
+          >
+            {label}
+          </TabButton>
         ))}
       </menu>
       <div id="tab-content">
